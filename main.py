@@ -2,7 +2,7 @@ import random
 from colors import *
 from tkinter import *
 from tkinter import ttk
-from algo import bubble_sort, insertion_sort, selection_sort, merge_sort, quick_sort
+from algo import bubble_sort, insertion_sort, selection_sort, merge_sort, quick_sort, heap_sort, counting_sort
 
 # Main window 
 window = Tk()
@@ -13,7 +13,7 @@ window.configure(bg = WHITE)
 
 algorithm_name = StringVar()
 # algo_list is to select which alforithm we want to use to sort
-algo_list = ['Bubble Sort', 'Insertion Sort', 'Selection Sort', 'Merge Sort' ,'Quick Sort']
+algo_list = ['Bubble Sort', 'Insertion Sort', 'Selection Sort', 'Merge Sort' ,'Quick Sort', 'Heap Sort', 'Counting Sort']
 
 
 speed_name = StringVar()
@@ -60,9 +60,9 @@ def set_speed():
     if speed_menu.get() == 'Slow':
         return 0.3
     elif speed_menu.get() == 'Medium':
-        return 0.1
+        return 0.2
     else:
-        return 0.00001
+        return 0.001
 
 # This funciton will trigger a selected algorithm and start sorting
 def sort():
@@ -78,6 +78,11 @@ def sort():
         selection_sort(data, drawData, timeTick)
     elif algo_menu.get() == 'Quick Sort':
         quick_sort(data, drawData, timeTick, 0, len(data)-1)
+    elif algo_menu.get() == 'Heap Sort':
+        heap_sort(data, drawData, timeTick)
+    elif algo_menu.get() == 'Counting Sort':
+        # counting_sort(data, drawData, timeTick)
+        print('Comming Soon....')
     else:
         print("Comming Soon....")
 
