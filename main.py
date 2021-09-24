@@ -2,7 +2,7 @@ import random
 from colors import *
 from tkinter import *
 from tkinter import ttk
-from algo import bubble_sort, merge_sort
+from algo import bubble_sort, insertion_sort, selection_sort, merge_sort, quick_sort
 
 # Main window 
 window = Tk()
@@ -13,7 +13,7 @@ window.configure(bg = WHITE)
 
 algorithm_name = StringVar()
 # algo_list is to select which alforithm we want to use to sort
-algo_list = ['Bubble Sort', 'Insertion Sort', 'Merge Sort']
+algo_list = ['Bubble Sort', 'Insertion Sort', 'Selection Sort', 'Merge Sort' ,'Quick Sort']
 
 
 speed_name = StringVar()
@@ -49,7 +49,7 @@ def generate():
     for i in range(0, 100):
         random_value = random.randint(1, 150)
         data.append(random_value)
-    print(len(data))
+    # print(len(data))
     drawData(data, [BLUE for x in range(len(data))])
 
     # print(data)
@@ -70,9 +70,14 @@ def sort():
     timeTick = set_speed()
     if algo_menu.get() == 'Bubble Sort':
         bubble_sort(data, drawData, timeTick)
-        
     elif algo_menu.get() == 'Merge Sort':
         merge_sort(data, 0, len(data)-1, drawData, timeTick)
+    elif algo_menu.get() == "Insertion Sort":
+        insertion_sort(data, drawData, timeTick)
+    elif algo_menu.get() == "Selection Sort":
+        selection_sort(data, drawData, timeTick)
+    elif algo_menu.get() == 'Quick Sort':
+        quick_sort(data, drawData, timeTick, 0, len(data)-1)
     else:
         print("Comming Soon....")
 
