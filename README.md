@@ -1,6 +1,5 @@
-# sorting-visuals
+# Sorting-Visuals
 
-Tech used - Python, Tkinter
 
 Sorting Algorithms used -
 <ul>
